@@ -1,32 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design System Demo</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Caricamento dei font con i pesi specifici definiti nei token -->
+    <title>Il Nostro Mondo Creativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Metadati per assicurare il corretto rendering dei colori -->
-    <meta name="color-scheme" content="light">
+    <style>
+        body {
+            margin: 0;
+            background-color: var(--grey10);
+            color: var(--grey90);
+            font-family: var(--font-families-fira-sans);
+            line-height: var(--line-heights-0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-family: var(--font-families-playfair-display);
+            font-weight: var(--font-weights-playfair-display-0);
+            font-size: var(--font-size-6);
+            color: var(--accent);
+            margin-bottom: var(--medium);
+            line-height: var(--line-heights-1);
+        }
+
+        .subtitle {
+            font-family: var(--font-families-fira-sans);
+            font-weight: var(--font-weights-fira-sans-2);
+            font-size: var(--font-size-4);
+            color: var(--grey40);
+            margin-bottom: 40px;
+        }
+
+        .content {
+            font-size: var(--font-size-1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        p {
+            margin-bottom: 24px;
+        }
+
+        .cta {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: var(--font-weights-fira-sans-2);
+            font-size: var(--font-size-1);
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #5c1bb3;
+        }
+    </style>
 </head>
 <body>
     <main class="container">
-        <!-- H1 utilizzando il token typography.H1 -->
-        <h1 style="font-family: var(--font-families-playfair-display);">Benvenuti nel Nostro Mondo Creativo</h1>
-        
-        <!-- H2 utilizzando il token typography.H2 -->
-        <h2 style="font-family: var(--font-families-fira-sans);">Scopri le Infinite Possibilità</h2>
-        
-        <!-- Paragrafo large utilizzando il token typography.P large -->
-        <p class="p-large" style="font-family: var(--font-families-fira-sans);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-        
-        <!-- Paragrafo medium utilizzando il token typography.P medium -->
-        <p class="p-medium" style="font-family: var(--font-families-fira-sans);">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
-        <!-- Button utilizzando il token typography.Cta e colors.Primary -->
-        <button class="cta-button" style="background-color: var(--primary);">Scopri di Più</button>
+        <div class="hero-section">
+            <h1 class="title">Benvenuti nel Nostro Mondo Creativo</h1>
+            <h2 class="subtitle">Scopri le Infinite Possibilità</h2>
+            
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                
+                <a href="#" class="cta">Scopri di Più</a>
+            </div>
+        </div>
     </main>
 </body>
 </html>
