@@ -3,34 +3,64 @@ name: Generate Design Tokens
 on:
   push:
     paths:
-      - 'tokens.json'  # Si attiva solo quando il file tokens.json viene modificato
+      - 'tokens.json'
     branches:
-      - main  # o il tuo branch principale
+      - main
+  workflow_dispatch:  # Permette l'esecuzione manuale
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full git history
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           
+      - name: Debug - List files
+        run: ls -la
+          
       - name: Install dependencies
         run: |
+          npm init -y
           npm install style-dictionary
+        
+      - name: Debug - Check tokens.json exists
+        run: |
+          if [ -f "tokens.json" ]; then
+            echo "tokens.json exists"
+            cat tokens.json
+          else
+            echo "tokens.json not found"
+            exit 1
+          fi
           
       - name: Generate tokens
-        run: node config.js
-        
+        run: |
+          echo "Starting token generation..."
+          node config.js
+          echo "Token generation completed"
+          
+      - name: Debug - Check if styles.css was generated
+        run: |
+          if [ -f "styles.css" ]; then
+            echo "styles.css was generated:"
+            cat styles.css
+          else
+            echo "styles.css was not generated"
+            exit 1
+          fi
+          
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add styles/styles.css
-          git commit -m "🤖 Update design tokens" || exit 0
+          git add styles.css
+          git diff --staged --quiet || git commit -m "🤖 Update design tokens"
           
       - name: Push changes
         uses: ad-m/github-push-action@master
