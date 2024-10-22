@@ -1,3 +1,4 @@
+const fs = require('fs');
 const StyleDictionary = require('style-dictionary');
 
 // Aggiungiamo logging per debug
@@ -30,6 +31,7 @@ StyleDictionary.extend({
 }).buildAllPlatforms();
 
 console.log('Style Dictionary build completed!');
+
 // Aggiungiamo la classe .container al file styles.css
 const containerStyles = `.container {
   max-width: 1200px;
@@ -37,5 +39,15 @@ const containerStyles = `.container {
   padding: 2rem;
 }\n`;
 
-fs.appendFileSync('styles.css', containerStyles, 'utf8');
-console.log('.container styles added!');
+try {
+  // Controlliamo se il file esiste
+  if (fs.existsSync('styles.css')) {
+    // Aggiungiamo la classe .container
+    fs.appendFileSync('styles.css', containerStyles, 'utf8');
+    console.log('.container styles added successfully!');
+  } else {
+    console.log('Error: styles.css file not found!');
+  }
+} catch (err) {
+  console.error('Error while adding .container styles:', err);
+}
