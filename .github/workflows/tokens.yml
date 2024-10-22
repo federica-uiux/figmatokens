@@ -6,7 +6,7 @@ on:
       - 'tokens.json'
     branches:
       - main
-  workflow_dispatch:  # Permette l'esecuzione manuale
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,21 +14,53 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Full git history
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           
-      - name: Debug - List files
-        run: ls -la
-          
       - name: Install dependencies
         run: |
           npm init -y
           npm install style-dictionary
-        
+          
+      - name: Create config file
+        run: |
+          echo "const StyleDictionary = require('style-dictionary');
+
+          console.log('Starting Style Dictionary build...');
+
+          StyleDictionary.extend({
+            source: ['./tokens.json'],
+            parsers: [{
+              pattern: /\.json$/,
+              parse: ({ contents }) => {
+                const tokens = JSON.parse(contents);
+                return tokens.global || tokens;
+              }
+            }],
+            platforms: {
+              css: {
+                transformGroup: 'css',
+                buildPath: './',
+                files: [{
+                  destination: 'styles.css',
+                  format: 'css/variables',
+                  options: {
+                    showFileHeader: false,
+                  }
+                }]
+              }
+            }
+          }).buildAllPlatforms();
+
+          console.log('Style Dictionary build completed!');" > config.js
+          
+      - name: Debug - List files
+        run: ls -la
+          
       - name: Debug - Check tokens.json exists
         run: |
           if [ -f "tokens.json" ]; then
