@@ -1,0 +1,11 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens automation",
+  "scripts": {
+    "build": "node config.js"
+  },
+  "dependencies": {
+    "style-dictionary": "^3.8.0"
+  }
+}
