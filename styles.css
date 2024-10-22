@@ -38,7 +38,14 @@
   --cta: [object Object];
   --text-case-none: none;
   --text-decoration-none: none;
+  
   --paragraph-indent-0: 0px;
   --small: 4px;
   --medium: 8px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
