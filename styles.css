@@ -39,6 +39,6 @@
   --text-case-none: none;
   --text-decoration-none: none;
   --paragraph-indent-0: 0px;
-  --small: 4;
-  --medium: 8;
+  --small: 4px;
+  --medium: 8px;
 }
