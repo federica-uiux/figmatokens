@@ -2,7 +2,7 @@
 :root {
     /* Colors */
     --color-accent: var(--global-Accent, #7222da);
-    --color-primary: var(--global-Primary, #62d687);
+    --color-primary: var(--global-Primary, #df05ff);
     --color-white: var(--global-White, #ffffff);
     --color-grey-10: var(--global-Grey10, #f5f5f5);
     --color-grey-20: var(--global-Grey20, #e0e0e0);
