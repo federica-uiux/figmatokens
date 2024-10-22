@@ -40,14 +40,15 @@ const containerStyles = `.container {
 }\n`;
 
 try {
-  // Controlliamo se il file esiste
-  if (fs.existsSync('styles.css')) {
-    // Aggiungiamo la classe .container
-    fs.appendFileSync('styles.css', containerStyles, 'utf8');
-    console.log('.container styles added successfully!');
-  } else {
-    console.log('Error: styles.css file not found!');
-  }
+  // Leggiamo il contenuto del file styles.css
+  const currentStyles = fs.readFileSync('styles.css', 'utf8');
+
+  // Aggiungiamo la classe .container
+  const updatedStyles = currentStyles + '\n' + containerStyles;
+
+  // Sovrascriviamo il file con il nuovo contenuto
+  fs.writeFileSync('styles.css', updatedStyles, 'utf8');
+  console.log('.container styles added successfully!');
 } catch (err) {
   console.error('Error while adding .container styles:', err);
 }
