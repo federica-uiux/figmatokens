@@ -1,3 +1,37 @@
+/* Design Tokens */
+:root {
+    /* Colors */
+    --color-accent: var(--global-Accent, #7222da);
+    --color-primary: var(--global-Primary, #62d687);
+    --color-white: var(--global-White, #ffffff);
+    --color-grey-10: var(--global-Grey10, #f5f5f5);
+    --color-grey-20: var(--global-Grey20, #e0e0e0);
+    --color-grey-30: var(--global-Grey30, #b0b0b0);
+    --color-grey-40: var(--global-Grey40, #606060);
+    --color-grey-90: var(--global-Grey90, #0a0a0a);
+    
+    /* Typography */
+    --font-family-playfair: var(--global-fontFamilies-playfair-display, 'Playfair Display');
+    --font-family-fira: var(--global-fontFamilies-fira-sans, 'Fira Sans');
+    
+    /* Font Sizes */
+    --font-size-0: var(--global-fontSize-0, 16px);
+    --font-size-1: var(--global-fontSize-1, 18px);
+    --font-size-2: var(--global-fontSize-2, 22px);
+    --font-size-3: var(--global-fontSize-3, 24px);
+    --font-size-4: var(--global-fontSize-4, 30px);
+    --font-size-5: var(--global-fontSize-5, 36px);
+    --font-size-6: var(--global-fontSize-6, 72px);
+    
+    /* Line Heights */
+    --line-height-0: var(--global-lineHeights-0, 150%);
+    --line-height-1: var(--global-lineHeights-1, 140%);
+    
+    /* Border Radius */
+    --border-radius-small: var(--global-small, 4px);
+    --border-radius-medium: var(--global-medium, 8px);
+}
+
 /* Reset base */
 * {
     margin: 0;
@@ -6,8 +40,8 @@
 }
 
 body {
-    background-color: #ffffff;
-    color: #0a0a0a;
+    background-color: var(--color-white);
+    color: var(--color-grey-90);
 }
 
 .container {
@@ -18,56 +52,56 @@ body {
 
 /* Typography */
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 72px;
-    line-height: 150%;
-    letter-spacing: 0%;
+    font-family: var(--font-family-playfair);
+    font-weight: var(--global-fontWeights-playfair-display-0, 800);
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-0);
+    letter-spacing: var(--global-letterSpacing-0, 0%);
     margin-bottom: 2rem;
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 36px;
-    line-height: 150%;
-    letter-spacing: -1%;
+    font-family: var(--font-family-playfair);
+    font-weight: var(--global-fontWeights-playfair-display-0, 800);
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-0);
+    letter-spacing: var(--global-letterSpacing-1, -1%);
     margin-bottom: 1.5rem;
 }
 
 .p-large {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 150%;
-    letter-spacing: -1%;
+    font-family: var(--font-family-fira);
+    font-weight: var(--global-fontWeights-fira-sans-1, 400);
+    font-size: var(--font-size-2);
+    line-height: var(--line-height-0);
+    letter-spacing: var(--global-letterSpacing-1, -1%);
     margin-bottom: 1rem;
 }
 
 .p-medium {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    letter-spacing: -1%;
+    font-family: var(--font-family-fira);
+    font-weight: var(--global-fontWeights-fira-sans-1, 400);
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-0);
+    letter-spacing: var(--global-letterSpacing-1, -1%);
     margin-bottom: 2rem;
 }
 
 .cta-button {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 140%;
-    letter-spacing: 0%;
-    background-color: #62d687;
-    color: #ffffff;
+    font-family: var(--font-family-fira);
+    font-weight: var(--global-fontWeights-fira-sans-2, 700);
+    font-size: var(--font-size-2);
+    line-height: var(--line-height-1);
+    letter-spacing: var(--global-letterSpacing-0, 0%);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
     padding: 1rem 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #4fb972;
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
 }
