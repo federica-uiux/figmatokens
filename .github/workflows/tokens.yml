@@ -90,13 +90,6 @@ jobs:
             exit 1
           fi
           
-      - name: Add .container styles
-        run: |
-    echo ".container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-      }" >> styles.css
 
       - name: Commit changes
         run: |
