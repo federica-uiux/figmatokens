@@ -1,0 +1,73 @@
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    color: #0a0a0a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 150%;
+    letter-spacing: -1%;
+    margin-bottom: 1.5rem;
+}
+
+.p-large {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 150%;
+    letter-spacing: -1%;
+    margin-bottom: 1rem;
+}
+
+.p-medium {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -1%;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    background-color: #62d687;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #4fb972;
+}
