@@ -30,3 +30,12 @@ StyleDictionary.extend({
 }).buildAllPlatforms();
 
 console.log('Style Dictionary build completed!');
+// Aggiungiamo la classe .container al file styles.css
+const containerStyles = `.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}\n`;
+
+fs.appendFileSync('styles.css', containerStyles, 'utf8');
+console.log('.container styles added!');
